@@ -17,12 +17,12 @@ function CustomHighhcartsWidget({ columnHeaders, rowsData, stopsStyle }) {
 
     useEffect(() => {
         if (xAxisData.length === 0) {
-            rowsData.map((row, idx) => {
+            rowsData.map((row, rowIdx) => {
                 yAxisheaders.push(row[0]);
-                row.slice(1).map((r, rIdx) => {
-                    minValue.current = Math.min(minValue.current, r);
-                    maxValue.current = Math.max(maxValue.current, r);
-                    xAxisData.push([rIdx, idx, r]);
+                row.slice(1).map((value, colIdx) => {
+                    minValue.current = Math.min(minValue.current, value);
+                    maxValue.current = Math.max(maxValue.current, value);
+                    xAxisData.push([colIdx, rowIdx, value]);
                 })
             });
             setMinValueState(minValue.current);

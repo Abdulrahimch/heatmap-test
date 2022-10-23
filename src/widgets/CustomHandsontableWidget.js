@@ -10,7 +10,6 @@ function CustomHandsontableWidget({ columnHeaders, rowsData }) {
         <HotTable
           data={rowsData}
           colHeaders={true}
-          // minSpareRows={1}
           colHeaders={columnHeaders[0]}
           height="auto"
           width="auto"
