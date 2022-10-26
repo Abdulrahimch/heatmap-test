@@ -16,18 +16,18 @@ function CustomHighhcartsWidget({ columnHeaders, rowsData, stopsStyle }) {
     const [maxValueState, setMaxValueState] = useState(0);
 
     useEffect(() => {
-        if (xAxisData.length === 0) {
-            rowsData.map((row, rowIdx) => {
-                yAxisheaders.push(row[0]);
-                row.slice(1).map((value, colIdx) => {
-                    minValue.current = Math.min(minValue.current, value);
-                    maxValue.current = Math.max(maxValue.current, value);
-                    xAxisData.push([colIdx, rowIdx, value]);
-                })
-            });
-            setMinValueState(minValue.current);
-            setMaxValueState(maxValue.current);
-        }
+        // if (xAxisData.length === 0) {
+        rowsData.map((row, rowIdx) => {
+            yAxisheaders.push(row[0]);
+            row.slice(1).map((value, colIdx) => {
+                minValue.current = Math.min(minValue.current, value);
+                maxValue.current = Math.max(maxValue.current, value);
+                xAxisData.push([colIdx, rowIdx, value]);
+            })
+        });
+        setMinValueState(minValue.current);
+        setMaxValueState(maxValue.current);
+        // }
     }, [rowsData]);
 
     const options = {
